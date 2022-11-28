@@ -97,9 +97,6 @@ class myapp(QtWidgets.QMainWindow,Ui_MainWindow):
         self.pushButton.clicked.connect(self.plantar)
         self.pushButton_2.clicked.connect(self.defuse)
 
-
-
-
     def plantar(self):
         self.plantstatus=1
         winsound.PlaySound('plant.wav', winsound.SND_ASYNC)
@@ -115,8 +112,6 @@ class myapp(QtWidgets.QMainWindow,Ui_MainWindow):
 
         hilo = threading.Thread(target=self.spiketimer, args=(), daemon=True)
         hilo.start()
-
-
 
     def spiketimer(self):
         self.plantstatus
@@ -136,11 +131,7 @@ class myapp(QtWidgets.QMainWindow,Ui_MainWindow):
         Movie2.start()
         self.label.setMovie(Movie2)
         time.sleep(4)
-        self.explo=1
-
-
-
-
+        self.close()
 
     def defuse(self):
         winsound.PlaySound('defuse.wav', winsound.SND_ASYNC)
@@ -150,11 +141,6 @@ class myapp(QtWidgets.QMainWindow,Ui_MainWindow):
         self.plantstatus=0
         self.label_3.setText("Spike desactivada")
         self.pushButton.setEnabled(True)
-
-
-
-
-
 
 if __name__ == "__main__":
     app=QtWidgets.QApplication(sys.argv)
